@@ -35,7 +35,10 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-  }
+  },
+  other: {
+    "google-adsense-account": "ca-pub-7135763404667447",
+  },
 };
 
 export default function RootLayout({
@@ -52,6 +55,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
+        <meta name="google-adsense-account" content="ca-pub-7135763404667447"></meta>
       </head>
       <body className={inter.className}>{children}</body>
     </html>
