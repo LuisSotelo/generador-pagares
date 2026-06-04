@@ -438,14 +438,21 @@ export default function Home() {
   };
   
   useEffect(() => {
-    try {
-      // Comprobamos que existan las funciones de adsbygoogle en el objeto window antes de empujar el anuncio
-      if (typeof window !== 'undefined') {
-        ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
+    // Función para empujar el anuncio de forma segura
+    const pushAd = () => {
+      try {
+        if (typeof window !== 'undefined' && (window as any).adsbygoogle) {
+          ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
+        }
+      } catch (e) {
+        console.error("Error al registrar bloque de AdSense", e);
       }
-    } catch (e) {
-      console.error("Error al cargar el bloque de AdSense", e);
-    }
+    };
+
+    // Le damos un respiro de 100ms para asegurar que el script afterInteractive ya se acopló a window
+    const timer = setTimeout(pushAd, 100);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -677,7 +684,7 @@ export default function Home() {
           </div>
 
           {/* Banner Publicitario reposicionado a la derecha lateral */}
-          <div className="bg-slate-50 border border-slate-200 border-dashed rounded-2xl p-4 flex flex-col items-center justify-center text-center min-h-62.5">
+          <div className="bg-slate-50 border border-slate-200 border-dashed rounded-2xl p-4 flex flex-col items-center justify-center text-center min-h-[250px]">
             <ins 
               className="adsbygoogle"
               style={{ display: 'block', width: '100%' }}
