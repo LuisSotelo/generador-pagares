@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
 import { 
   calcularVencimientos, 
@@ -436,6 +436,17 @@ export default function Home() {
       }
     );
   };
+  
+  useEffect(() => {
+    try {
+      // Comprobamos que existan las funciones de adsbygoogle en el objeto window antes de empujar el anuncio
+      if (typeof window !== 'undefined') {
+        ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
+      }
+    } catch (e) {
+      console.error("Error al cargar el bloque de AdSense", e);
+    }
+  }, []);
 
   return (
     <main className="min-h-screen bg-slate-50 py-10 px-4 sm:px-6 lg:px-8">
@@ -666,9 +677,15 @@ export default function Home() {
           </div>
 
           {/* Banner Publicitario reposicionado a la derecha lateral */}
-          <div className="bg-slate-100 border border-slate-200 border-dashed rounded-2xl p-4 h-64 flex flex-col items-center justify-center text-center">
-            <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Publicidad</span>
-            <span className="text-xs text-slate-400 px-4">Este espacio genera ingresos pasivos mediante banners de Google AdSense.</span>
+          <div className="bg-slate-50 border border-slate-200 border-dashed rounded-2xl p-4 flex flex-col items-center justify-center text-center min-h-[250px]">
+            <ins 
+              className="adsbygoogle"
+              style={{ display: 'block', width: '100%' }}
+              data-ad-client="ca-pub-7135763404667447"
+              data-ad-slot="6705345469"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            />
           </div>
         </div>
 
