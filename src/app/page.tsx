@@ -677,7 +677,7 @@ export default function Home() {
           </div>
 
           {/* Banner Publicitario reposicionado a la derecha lateral */}
-          <div className="bg-slate-50 border border-slate-200 border-dashed rounded-2xl p-4 flex flex-col items-center justify-center text-center min-h-[250px]">
+          <div className="bg-slate-50 border border-slate-200 border-dashed rounded-2xl p-4 flex flex-col items-center justify-center text-center min-h-62.5">
             <ins 
               className="adsbygoogle"
               style={{ display: 'block', width: '100%' }}
