@@ -131,12 +131,20 @@ export default function Home() {
           p.drawRectangle({
             x: 45,
             y: top - 35,
-            width: 75,
+            width: 110,
             height: 22,
             borderColor: rgb(0.2, 0.2, 0.2),
             borderWidth: 1,
           });
-          p.drawText('PAGARÉ', { x: 58, y: top - 28, size: 11, font: bold });
+          p.drawText(
+            `PAGARÉ ${inst.installment_number} DE ${totalPagares}`,
+            {
+              x: 50,
+              y: top - 28,
+              size: 8,
+              font: bold,
+            }
+          );
 
           // 3. Recuadro superior derecho: Bueno por $ [ Cantidad ]
           // REMISIÓN CENTRADA
@@ -301,7 +309,7 @@ export default function Home() {
           });
 
           // 8. Texto legal de interés moratorio abreviado
-          const textoInteresLegible = `Valor recibido en mi (nuestra) satisfacción, quedando sujetos a que se agregue un interés moratorio de ${interesMoratorio}% mensual (Serie ${inst.installment_number}/${totalPagares}) en caso de no pagarse en el término establecido.`;
+          const textoInteresLegible = `Valor recibido en mi (nuestra) satisfacción, quedando sujetos a que se agregue un interés moratorio de ${interesMoratorio}% mensual en caso de no pagarse en el término establecido.`;
           drawTextFit({
             page: p,
             text: textoInteresLegible,
