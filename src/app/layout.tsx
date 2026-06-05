@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Generador de Pagarés en Serie Gratis | Crea Pagarés en PDF",
     description: "Herramienta online gratuita para generar series de pagarés listos para imprimir en formato PDF con autocompletado.",
-    url: "https://tudominio.com", // Cambiar por tu URL de Vercel cuando la tengas
+    url: "https://generador-pagares.vercel.app",
     siteName: "Generador Gratis de Pagarés",
     locale: "es_MX",
     type: "website",
