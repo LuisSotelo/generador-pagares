@@ -2,7 +2,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Script from 'next/script';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -49,14 +48,35 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
-        <Script
+        <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7135763404667447"
           crossOrigin="anonymous"
-          strategy="afterInteractive"
         />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>{children}
+        <footer className="mt-16 border-t border-slate-200 py-6">
+          <div className="max-w-5xl mx-auto px-4 text-center text-sm text-slate-500">
+            <div className="flex justify-center gap-4 mb-2">
+              <a href="/privacidad" className="hover:text-slate-800">
+                Privacidad
+              </a>
+
+              <a href="/terminos" className="hover:text-slate-800">
+                Términos
+              </a>
+
+              <a href="/contacto" className="hover:text-slate-800">
+                Contacto
+              </a>
+            </div>
+
+            <p>
+              © {new Date().getFullYear()} Sintaxis Lab. Todos los derechos reservados.
+            </p>
+          </div>
+        </footer>
+      </body>
     </html>
   );
 }
