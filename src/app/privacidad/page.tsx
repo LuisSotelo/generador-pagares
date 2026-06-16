@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Política de Privacidad | Sintaxis Lab",
@@ -8,11 +9,17 @@ export const metadata: Metadata = {
 export default function PrivacidadPage() {
   return (
     <main className="max-w-4xl mx-auto px-6 py-12">
+      <Link
+          href="/"
+          className="inline-block mb-6 text-sm text-indigo-600 hover:underline"
+        >
+          ← Volver al generador
+        </Link>
       <h1 className="text-3xl font-bold mb-8">
         Política de Privacidad
       </h1>
 
-      <div className="space-y-6 text-slate-700 leading-relaxed">
+      <div className="space-y-6 text-slate-50 leading-relaxed">
         <p>
           Última actualización: Junio de 2026
         </p>

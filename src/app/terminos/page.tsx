@@ -12,7 +12,7 @@ export default function TerminosPage() {
         Términos y Condiciones
       </h1>
 
-      <div className="space-y-6 text-slate-700 leading-relaxed">
+      <div className="space-y-6 text-slate-50 leading-relaxed">
         <p>
           Última actualización: Junio de 2026
         </p>

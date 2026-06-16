@@ -683,7 +683,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Banner Publicitario reposicionado a la derecha lateral */}
+          {/* {/* Banner Publicitario reposicionado a la derecha lateral *
           <div className="bg-slate-50 border border-slate-200 border-dashed rounded-2xl p-4 flex flex-col items-center justify-center text-center min-h-[250px]">
             <ins 
               className="adsbygoogle"
@@ -693,10 +693,73 @@ export default function Home() {
               data-ad-format="auto"
               data-full-width-responsive="true"
             />
-          </div>
+          </div> */}
         </div>
 
       </div>
+      <section className="max-w-5xl mx-auto mt-16 bg-white rounded-2xl border border-slate-200 text-slate-950 p-8 space-y-8">
+      <h2 className="text-3xl font-bold">
+        ¿Qué es un pagaré y para qué sirve?
+      </h2>
+
+      <p>
+        Un pagaré es un documento mediante el cual una persona se compromete
+        legalmente a pagar una cantidad determinada de dinero a otra persona
+        en una fecha específica. Es uno de los instrumentos más utilizados
+        en México para respaldar créditos personales, ventas a plazos,
+        financiamientos comerciales y acuerdos de pago entre particulares.
+      </p>
+
+      <p>
+        Al firmar un pagaré, el deudor reconoce la existencia de una deuda y
+        se compromete a cubrirla en las condiciones establecidas dentro del
+        documento. Por esta razón, los pagarés son ampliamente utilizados por
+        comerciantes, emprendedores, distribuidores y empresas que venden
+        productos o servicios a crédito.
+      </p>
+
+      <h2 className="text-2xl font-semibold">
+        ¿Cómo funciona este generador de pagarés?
+      </h2>
+
+      <p>
+        Esta herramienta permite generar múltiples pagarés en serie de forma
+        automática. Solo necesitas capturar los datos básicos del crédito,
+        seleccionar el número de pagarés que deseas generar y el sistema
+        calculará automáticamente los vencimientos y el importe correspondiente
+        a cada documento.
+      </p>
+
+      <p>
+        Todos los documentos se generan directamente en tu navegador. La
+        información capturada no se almacena en servidores externos ni es
+        compartida con terceros.
+      </p>
+
+      <h2 className="text-2xl font-semibold">
+        Ventajas de generar pagarés en serie
+      </h2>
+
+      <ul className="list-disc pl-6 space-y-2">
+        <li>Ahorra tiempo al crear múltiples documentos.</li>
+        <li>Calcula automáticamente fechas de vencimiento.</li>
+        <li>Divide créditos en pagos semanales, quincenales o mensuales.</li>
+        <li>Genera documentos listos para imprimir.</li>
+        <li>Reduce errores de captura manual.</li>
+      </ul>
+
+      <h2 className="text-2xl font-semibold">
+        Recomendaciones importantes
+      </h2>
+
+      <p>
+        Antes de firmar cualquier pagaré, verifica que los datos del deudor,
+        beneficiario, montos y fechas sean correctos. En operaciones
+        comerciales importantes siempre es recomendable consultar a un
+        profesional legal para asegurarse de que el documento cumple con la
+        legislación aplicable.
+      </p>
+    </section>
     </main>
   );
 }

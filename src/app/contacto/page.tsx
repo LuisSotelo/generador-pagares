@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { Metadata } from "next";
+import Link from "next/link";
 
 export default function ContactoPage() {
   const [loading, setLoading] = useState(false);
@@ -39,11 +39,17 @@ export default function ContactoPage() {
 
   return (
     <main className="max-w-4xl mx-auto px-6 py-12">
+      <Link
+          href="/"
+          className="inline-block mb-6 text-sm text-indigo-600 hover:underline"
+        >
+          ← Volver al generador
+        </Link>
       <h1 className="text-3xl font-bold mb-4">
         Contacto
       </h1>
 
-      <p className="text-slate-600 mb-8">
+      <p className="text-slate-50 mb-8">
         ¿Tienes alguna duda, sugerencia o encontraste algún problema?
         Escríbenos y te responderemos lo antes posible.
       </p>
@@ -57,7 +63,7 @@ export default function ContactoPage() {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm mb-1">
+            <label className="block text-sm mb-1 text-black">
               Nombre
             </label>
 
@@ -75,7 +81,7 @@ export default function ContactoPage() {
           </div>
 
           <div>
-            <label className="block text-sm mb-1">
+            <label className="block text-sm mb-1 text-black">
               Correo electrónico
             </label>
 
@@ -88,7 +94,7 @@ export default function ContactoPage() {
           </div>
 
           <div>
-            <label className="block text-sm mb-1">
+            <label className="block text-sm mb-1 text-black">
               Asunto
             </label>
 
@@ -100,7 +106,7 @@ export default function ContactoPage() {
           </div>
 
           <div>
-            <label className="block text-sm mb-1">
+            <label className="block text-sm mb-1 text-black">
               Mensaje
             </label>
 
@@ -122,7 +128,7 @@ export default function ContactoPage() {
         </form>
       </div>
 
-      <div className="mt-10 text-slate-600">
+      <div className="mt-10 text-slate-50">
         <h2 className="text-xl font-semibold mb-3">
           Sobre Sintaxis Lab
         </h2>
