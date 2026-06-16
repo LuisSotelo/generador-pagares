@@ -104,21 +104,37 @@ export default function RootLayout({
           </header>
               {children}
         <footer className="mt-16 border-t border-slate-200 py-6">
-          <div className="max-w-5xl mx-auto px-4 text-center text-sm text-slate-600">
+          <div className="max-w-5xl mx-auto px-4 text-center text-sm text-slate-50">
             <div className="flex justify-center gap-4 mb-2">
-              <a href="/que-es-un-pagare" className="hover:text-slate-500">
+              <a href="/que-es-un-pagare" className="hover:text-slate-400">
                 ¿Qué es un pagaré?
               </a>
 
-              <a href="/privacidad" className="hover:text-slate-500">
+              <a href="/como-llenar-un-pagare">
+                Cómo llenar un pagaré
+              </a>
+
+              <a href="/pagare-en-mexico">
+                Pagaré en México
+              </a>
+
+              <a href="/pagare-ejemplo">
+                Ejemplos
+              </a>
+
+              <a href="/preguntas-frecuentes">
+                Preguntas frecuentes
+              </a>
+
+              <a href="/privacidad" className="hover:text-slate-400">
                 Privacidad
               </a>
 
-              <a href="/terminos" className="hover:text-slate-500">
+              <a href="/terminos" className="hover:text-slate-400">
                 Términos
               </a>
 
-              <a href="/contacto" className="hover:text-slate-500">
+              <a href="/contacto" className="hover:text-slate-400">
                 Contacto
               </a>
             </div>

@@ -11,8 +11,9 @@ export const metadata: Metadata = {
 
 export default function QueEsUnPagarePage() {
   return (
-    <main className="max-w-4xl mx-auto px-6 py-12">
-      <article className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-sm">
+    <main className="min-h-screen bg-slate-50 py-10 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto">
+        <article className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-10">
         <Link
           href="/"
           className="inline-block mb-6 text-sm text-indigo-600 hover:underline"
@@ -20,15 +21,16 @@ export default function QueEsUnPagarePage() {
           ← Volver al generador
         </Link>
 
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-950 mb-6">
-          ¿Qué es un pagaré?
-        </h1>
+        <div className="mb-8 rounded-2xl bg-gradient-to-br from-indigo-50 to-blue-50 border border-indigo-100 p-6">
+          <h1 className="text-3xl sm:text-4xl font-bold text-slate-950">
+            ¿Qué es un pagaré?
+          </h1>
 
-        <p className="text-lg text-slate-600 leading-relaxed mb-8">
-          Un pagaré es un documento mediante el cual una persona se compromete
-          por escrito a pagar una cantidad determinada de dinero a otra persona
-          en una fecha específica.
-        </p>
+          <p className="mt-3 text-slate-600">
+            Aprende qué es un pagaré, para qué sirve, cuándo se utiliza y las diferencias
+            con otros documentos financieros.
+          </p>
+        </div>
 
         <div className="space-y-8 text-slate-700 leading-relaxed">
           <section>
@@ -176,16 +178,17 @@ export default function QueEsUnPagarePage() {
             </p>
           </section>
 
-          <div className="pt-6 border-t border-slate-200">
+          <div className="mt-10 pt-6 border-t border-slate-200">
             <Link
               href="/"
-              className="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white hover:bg-indigo-700"
+              className="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white hover:bg-indigo-700 transition-colors"
             >
               Crear pagarés gratis
             </Link>
           </div>
         </div>
       </article>
+      </div>
     </main>
   );
 }

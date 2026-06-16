@@ -8,18 +8,20 @@ export const metadata: Metadata = {
 
 export default function TerminosPage() {
   return (
-    <main className="max-w-4xl mx-auto px-6 py-12">
+    <main className="min-h-screen bg-slate-50 py-10 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto">
+        <article className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-10">
       <Link
           href="/"
           className="inline-block mb-6 text-sm text-indigo-600 hover:underline"
         >
           ← Volver al generador
         </Link>
-      <h1 className="text-3xl font-bold mb-8">
+      <h1 className="text-3xl font-bold mb-8 text-slate-900">
         Términos y Condiciones
       </h1>
 
-      <div className="space-y-6 text-slate-50 leading-relaxed">
+      <div className="space-y-6 text-slate-900 leading-relaxed">
         <p>
           Última actualización: Junio de 2026
         </p>
@@ -101,6 +103,16 @@ export default function TerminosPage() {
         <p className="font-medium">
           hola.sintaxislab@gmail.com
         </p>
+      </div>
+      <div className="mt-10 pt-6 border-t border-slate-200">
+  <Link
+    href="/"
+    className="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white hover:bg-indigo-700 transition-colors"
+  >
+    Crear pagarés gratis
+  </Link>
+</div>
+      </article>
       </div>
     </main>
   );

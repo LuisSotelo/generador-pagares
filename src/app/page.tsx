@@ -683,7 +683,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* {/* Banner Publicitario reposicionado a la derecha lateral *
+          {/* Banner Publicitario reposicionado a la derecha lateral */}
           <div className="bg-slate-50 border border-slate-200 border-dashed rounded-2xl p-4 flex flex-col items-center justify-center text-center min-h-[250px]">
             <ins 
               className="adsbygoogle"
@@ -693,7 +693,7 @@ export default function Home() {
               data-ad-format="auto"
               data-full-width-responsive="true"
             />
-          </div> */}
+          </div>
         </div>
 
       </div>
