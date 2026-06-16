@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -66,10 +67,11 @@ export default function RootLayout({
                 href="/"
                 className="flex items-center gap-3"
               >
-                <img
+                <Image
                   src="/favicon.png"
                   alt="Generador de Pagarés"
-                  className="w-10 h-10"
+                  width={40}
+                  height={40}
                 />
 
                 <div>
@@ -102,7 +104,7 @@ export default function RootLayout({
           </header>
               {children}
         <footer className="mt-16 border-t border-slate-200 py-6">
-          <div className="max-w-5xl mx-auto px-4 text-center text-sm text-slate-50">
+          <div className="max-w-5xl mx-auto px-4 text-center text-sm text-slate-600">
             <div className="flex justify-center gap-4 mb-2">
               <a href="/que-es-un-pagare" className="hover:text-slate-500">
                 ¿Qué es un pagaré?
