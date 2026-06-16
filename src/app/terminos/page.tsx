@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Términos y Condiciones | Sintaxis Lab",
@@ -8,6 +9,12 @@ export const metadata: Metadata = {
 export default function TerminosPage() {
   return (
     <main className="max-w-4xl mx-auto px-6 py-12">
+      <Link
+          href="/"
+          className="inline-block mb-6 text-sm text-indigo-600 hover:underline"
+        >
+          ← Volver al generador
+        </Link>
       <h1 className="text-3xl font-bold mb-8">
         Términos y Condiciones
       </h1>
