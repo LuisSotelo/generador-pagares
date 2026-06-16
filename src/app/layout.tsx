@@ -18,6 +18,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Sintaxis Lab" }],
   creator: "Sintaxis Lab",
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
   openGraph: {
     title: "Generador de Pagarés en Serie Gratis | Crea Pagarés en PDF",
     description: "Herramienta online gratuita para generar series de pagarés listos para imprimir en formato PDF con autocompletado.",
@@ -54,7 +59,48 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body className={inter.className}>{children}
+      <body className={inter.className}>
+         <header className="border-b border-slate-200 bg-white sticky top-0 z-50">
+            <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+              <a
+                href="/"
+                className="flex items-center gap-3"
+              >
+                <img
+                  src="/favicon.png"
+                  alt="Generador de Pagarés"
+                  className="w-10 h-10"
+                />
+
+                <div>
+                  <div className="font-bold text-slate-900">
+                    Generador de Pagarés
+                  </div>
+
+                  <div className="text-xs text-slate-500">
+                    Gratis • PDF • En Serie
+                  </div>
+                </div>
+              </a>
+
+              <nav className="hidden md:flex gap-6 text-sm">
+                <a
+                  href="/que-es-un-pagare"
+                  className="text-slate-600 hover:text-indigo-600"
+                >
+                  ¿Qué es un pagaré?
+                </a>
+
+                <a
+                  href="/contacto"
+                  className="text-slate-600 hover:text-indigo-600"
+                >
+                  Contacto
+                </a>
+              </nav>
+            </div>
+          </header>
+              {children}
         <footer className="mt-16 border-t border-slate-200 py-6">
           <div className="max-w-5xl mx-auto px-4 text-center text-sm text-slate-50">
             <div className="flex justify-center gap-4 mb-2">
