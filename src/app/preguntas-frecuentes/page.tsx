@@ -31,39 +31,52 @@ export default function FAQPage() {
   ];
 
   return (
-    <main className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
-      <Link
-        href="/"
-        className="inline-flex items-center gap-1 mb-6 text-sm font-semibold text-indigo-600 hover:text-indigo-700 transition-colors"
-      >
-        ← Volver al generador
-      </Link>
+    <main className="min-h-screen bg-slate-50 py-10 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto">
+            <article className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-10">
+                <Link
+                    href="/"
+                    className="inline-flex items-center gap-1 mb-6 text-sm font-semibold text-indigo-600 hover:text-indigo-700 transition-colors"
+                >
+                    ← Volver al generador
+                </Link>
 
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold tracking-tight text-slate-950 mb-2">
-          Preguntas Frecuentes
-        </h1>
-        <p className="text-sm text-slate-500">
-          Respuestas a las dudas más habituales sobre el uso y legalidad de los pagarés mercantiles.
-        </p>
-      </div>
+                <div className="mb-8">
+                    <h1 className="text-3xl font-bold tracking-tight text-slate-950 mb-2">
+                    Preguntas Frecuentes
+                    </h1>
+                    <p className="text-sm text-slate-500">
+                    Respuestas a las dudas más habituales sobre el uso y legalidad de los pagarés mercantiles.
+                    </p>
+                </div>
 
-      <div className="space-y-4">
-        {faqs.map((faq, index) => (
-          <div 
-            key={index} 
-            className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-sm"
-          >
-            <h3 className="text-base font-bold text-slate-950 mb-2 flex items-start gap-2">
-              <span className="text-indigo-600 font-extrabold">¿</span>
-              {faq.q}
-            </h3>
-            <p className="text-sm text-slate-600 pl-4 border-l-2 border-slate-100 leading-relaxed">
-              {faq.a}
-            </p>
-          </div>
-        ))}
-      </div>
+                <div className="space-y-4">
+                    {faqs.map((faq, index) => (
+                    <div 
+                        key={index} 
+                        className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-sm"
+                    >
+                        <h3 className="text-base font-bold text-slate-950 mb-2 flex items-start gap-2">
+                        <span className="text-indigo-600 font-extrabold">¿</span>
+                        {faq.q}
+                        </h3>
+                        <p className="text-sm text-slate-600 pl-4 border-l-2 border-slate-100 leading-relaxed">
+                        {faq.a}
+                        </p>
+                    </div>
+                    ))}
+                </div>
+
+                <div className="mt-10 pt-6 border-t border-slate-200">
+                    <Link
+                    href="/"
+                    className="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white hover:bg-indigo-700 transition-colors"
+                    >
+                    Crear pagarés gratis
+                    </Link>
+                </div>
+            </article>
+        </div>
     </main>
   );
 }
