@@ -9,10 +9,25 @@ export default function ContactoPage() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setLoading(true);
 
-    // 1. Guardamos la referencia fija del formulario antes del await
-    const form = e.currentTarget; 
+    // 1. DEFINIR EL TIEMPO DE ESPERA (Ej. 5 minutos en milisegundos)
+    const TIEMPO_BLOQUEO = 5 * 60 * 1000; 
+    const ahora = Date.now();
+    const ultimoEnvio = localStorage.getItem("ultimo_envio_contacto");
+
+    // 2. VERIFICAR SI EL USUARIO ESTÁ EN PERIODO DE ENFRIAMIENTO
+    if (ultimoEnvio) {
+      const tiempoTranscurrido = ahora - parseInt(ultimoEnvio, 10);
+      
+      if (tiempoTranscurrido < TIEMPO_BLOQUEO) {
+        const minutosRestantes = Math.ceil((TIEMPO_BLOQUEO - tiempoTranscurrido) / 1000 / 60);
+        alert(`Por favor, espera ${minutosRestantes} minuto(s) antes de enviar otro mensaje. Evitemos el spam.`);
+        return;
+      }
+    }
+
+    setLoading(true);
+    const form = e.currentTarget;
     const formData = new FormData(form);
 
     const res = await fetch("/api/contact", {
@@ -30,8 +45,10 @@ export default function ContactoPage() {
 
     if (res.ok) {
       setEnviado(true);
-      // 2. Usamos la constante segura en lugar de e.currentTarget
-      form.reset(); 
+      form.reset();
+      
+      // 3. GUARDAR EL TIMESTAMP DEL ENVÍO EXITOSO
+      localStorage.setItem("ultimo_envio_contacto", Date.now().toString());
     } else {
       alert("No fue posible enviar el mensaje.");
     }
