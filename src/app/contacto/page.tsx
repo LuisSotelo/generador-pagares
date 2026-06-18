@@ -7,14 +7,13 @@ export default function ContactoPage() {
   const [loading, setLoading] = useState(false);
   const [enviado, setEnviado] = useState(false);
 
-  async function handleSubmit(
-    e: React.FormEvent<HTMLFormElement>
-  ) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-
     setLoading(true);
 
-    const formData = new FormData(e.currentTarget);
+    // 1. Guardamos la referencia fija del formulario antes del await
+    const form = e.currentTarget; 
+    const formData = new FormData(form);
 
     const res = await fetch("/api/contact", {
       method: "POST",
@@ -31,7 +30,8 @@ export default function ContactoPage() {
 
     if (res.ok) {
       setEnviado(true);
-      e.currentTarget.reset();
+      // 2. Usamos la constante segura en lugar de e.currentTarget
+      form.reset(); 
     } else {
       alert("No fue posible enviar el mensaje.");
     }
