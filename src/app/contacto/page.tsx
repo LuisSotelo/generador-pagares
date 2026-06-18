@@ -64,16 +64,15 @@ export default function ContactoPage() {
             )}
 
             <form onSubmit={handleSubmit} className="space-y-4">
+              <input
+                type="text"
+                name="website"
+                className="hidden"
+              />
               <div>
                 <label className="block text-sm mb-1 text-slate-900">
                   Nombre
                 </label>
-
-                <input
-                type="text"
-                name="website"
-                className="hidden"
-                />
 
                 <input
                   name="nombre"
