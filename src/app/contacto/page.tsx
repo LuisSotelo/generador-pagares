@@ -73,7 +73,7 @@ export default function ContactoPage() {
             Escríbenos y te responderemos lo antes posible.
           </p>
 
-          <div className="bg-white border rounded-2xl p-6 shadow-sm">
+          <div className="border-t border-slate-100 pt-6">
             {enviado && (
               <div className="mb-6 rounded-lg bg-green-50 border border-green-200 p-4 text-green-700">
                 Mensaje enviado correctamente.
@@ -139,7 +139,7 @@ export default function ContactoPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="bg-indigo-600 text-white px-5 py-3 rounded-lg hover:bg-indigo-700 disabled:bg-slate-400"
+                className="w-full sm:w-auto bg-indigo-600 text-white px-5 py-3 rounded-lg hover:bg-indigo-700 disabled:bg-slate-400"
               >
                 {loading ? "Enviando..." : "Enviar mensaje"}
               </button>
@@ -160,7 +160,7 @@ export default function ContactoPage() {
           <div className="mt-10 pt-6 border-t border-slate-200">
   <Link
     href="/"
-    className="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white hover:bg-indigo-700 transition-colors"
+    className="inline-flex w-full items-center justify-center rounded-xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white hover:bg-indigo-700 transition-colors sm:w-auto"
   >
     Crear pagarés gratis
   </Link>

@@ -32,7 +32,7 @@ export default function ComoLlenarPagarePage() {
                 </h2>
                 <ol className="list-decimal pl-6 space-y-4">
                 <li>
-                    <strong>La palabra "Pagaré":</strong> Debe estar explícita en el texto del título y cuerpo del documento. Nuestro formato lo incluye de manera automática.
+                    <strong>La palabra &quot;Pagaré&quot;:</strong> Debe estar explícita en el texto del título y cuerpo del documento. Nuestro formato lo incluye de manera automática.
                 </li>
                 <li>
                     <strong>Monto numérico (Bueno por $):</strong> Escribe la cantidad total del crédito con números claros. Es recomendable usar puntos y comas para los miles y centavos (Ej. $10,500.00).
@@ -64,7 +64,7 @@ export default function ComoLlenarPagarePage() {
             <div className="pt-4 border-t border-slate-100 flex justify-center">
                 <Link
                 href="/"
-                className="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white hover:bg-indigo-700 transition-colors shadow-sm"
+                className="inline-flex w-full items-center justify-center rounded-xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white hover:bg-indigo-700 transition-colors shadow-sm sm:w-auto"
                 >
                 Generar un pagaré automatizado ahora
                 </Link>

@@ -181,7 +181,7 @@ export default function QueEsUnPagarePage() {
           <div className="mt-10 pt-6 border-t border-slate-200">
             <Link
               href="/"
-              className="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white hover:bg-indigo-700 transition-colors"
+            className="inline-flex w-full items-center justify-center rounded-xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white hover:bg-indigo-700 transition-colors sm:w-auto"
             >
               Crear pagarés gratis
             </Link>

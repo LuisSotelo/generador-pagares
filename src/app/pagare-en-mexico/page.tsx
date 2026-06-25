@@ -26,7 +26,7 @@ export default function PagareMexicoPage() {
 
                 <div className="space-y-6 text-sm text-slate-600 leading-relaxed">
                 <p>
-                    En México, el pagaré no es un simple papel de compromiso; es un **Título de Crédito** formal y ejecutivo regulado de manera estricta por la <strong>Ley General de Títulos y Operaciones de Crédito (LGTOC)</strong>, específicamente en sus artículos del 170 al 174.
+                    En México, el pagaré no es un simple papel de compromiso; es un <strong>Título de Crédito</strong> formal y ejecutivo regulado de manera estricta por la <strong>Ley General de Títulos y Operaciones de Crédito (LGTOC)</strong>, específicamente en sus artículos del 170 al 174.
                 </p>
 
                 <section>
@@ -48,10 +48,10 @@ export default function PagareMexicoPage() {
 
                 <section>
                     <h2 className="text-lg font-bold text-slate-900 mb-2">
-                    ¿Qué significa que traiga "aparejada ejecución"?
+                    ¿Qué significa que traiga &quot;aparejada ejecución&quot;?
                     </h2>
                     <p>
-                    Esta es la mayor ventaja del pagaré en México. En caso de incumplimiento, el acreedor puede iniciar un **Juicio Ejecutivo Mercantil**. Esto permite que, desde el primer momento de la demanda (antes del juicio largo), un juez ordene el requerimiento de pago y, de ser necesario, el embargo precautorio de bienes del deudor para garantizar el saldo de la deuda.
+                    Esta es la mayor ventaja del pagaré en México. En caso de incumplimiento, el acreedor puede iniciar un <strong>Juicio Ejecutivo Mercantil</strong>. Esto permite que, desde el primer momento de la demanda (antes del juicio largo), un juez ordene el requerimiento de pago y, de ser necesario, el embargo precautorio de bienes del deudor para garantizar el saldo de la deuda.
                     </p>
                 </section>
 
@@ -60,7 +60,7 @@ export default function PagareMexicoPage() {
                     Intereses Moratorios Legales vs. Usura
                     </h2>
                     <p>
-                    Aunque la ley permite que las partes acuerden libremente la tasa de interés moratorio (por ejemplo, el 1.5% o 5% mensual), la Suprema Corte de Justicia de la Nación (SCJN) prohíbe la **usura**. Si un juez considera que los intereses estipulados son excesivos o abusivos, tiene la facultad de reducirlos de oficio a parámetros comerciales éticos y legales.
+                    Aunque la ley permite que las partes acuerden libremente la tasa de interés moratorio (por ejemplo, el 1.5% o 5% mensual), la Suprema Corte de Justicia de la Nación (SCJN) prohíbe la <strong>usura</strong>. Si un juez considera que los intereses estipulados son excesivos o abusivos, tiene la facultad de reducirlos de oficio a parámetros comerciales éticos y legales.
                     </p>
                 </section>
                 </div>

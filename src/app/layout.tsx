@@ -1,12 +1,13 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
+import Link from "next/link";
 
-const inter = Inter({ subsets: ["latin"] });
+const siteUrl = "https://generador-pagares.vercel.app";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Generador de Pagarés en Serie Gratis | Crea Pagarés en PDF",
   description: "Crea e imprime tus pagarés de forma masiva y gratuita. Herramienta digital para llenar pagarés automáticamente con fechas de vencimiento, números de serie y conversión de cantidades a letras.",
   keywords: [
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Generador de Pagarés en Serie Gratis | Crea Pagarés en PDF",
     description: "Herramienta online gratuita para generar series de pagarés listos para imprimir en formato PDF con autocompletado.",
-    url: "https://generador-pagares.vercel.app",
+    url: siteUrl,
     siteName: "Generador Gratis de Pagarés",
     locale: "es_MX",
     type: "website",
@@ -46,6 +47,15 @@ export const metadata: Metadata = {
   },
 };
 
+const navigationLinks = [
+  { href: "/que-es-un-pagare", label: "Qué es un pagaré" },
+  { href: "/como-llenar-un-pagare", label: "Cómo llenarlo" },
+  { href: "/pagare-en-mexico", label: "Pagaré en México" },
+  { href: "/pagare-ejemplo", label: "Ejemplo" },
+  { href: "/preguntas-frecuentes", label: "FAQ" },
+  { href: "/contacto", label: "Contacto" },
+];
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -60,12 +70,12 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body className={inter.className}>
+      <body>
          <header className="border-b border-slate-200 bg-white sticky top-0 z-50">
-            <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-              <a
+            <div className="max-w-5xl mx-auto px-4 py-3 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+              <Link
                 href="/"
-                className="flex items-center gap-3"
+                className="flex min-w-0 items-center gap-3"
               >
                 <Image
                   src="/favicon.png"
@@ -74,69 +84,54 @@ export default function RootLayout({
                   height={40}
                 />
 
-                <div>
-                  <div className="font-bold text-slate-900">
+                <div className="min-w-0">
+                  <div className="font-bold text-slate-900 truncate">
                     Generador de Pagarés
                   </div>
 
-                  <div className="text-xs text-slate-500">
+                  <div className="text-xs text-slate-500 truncate">
                     Gratis • PDF • En Serie
                   </div>
                 </div>
-              </a>
+              </Link>
 
-              <nav className="hidden md:flex gap-6 text-sm">
-                <a
-                  href="/que-es-un-pagare"
-                  className="text-slate-600 hover:text-indigo-600"
-                >
-                  ¿Qué es un pagaré?
-                </a>
-
-                <a
-                  href="/contacto"
-                  className="text-slate-600 hover:text-indigo-600"
-                >
-                  Contacto
-                </a>
+              <nav
+                aria-label="Navegación principal"
+                className="-mx-4 flex gap-3 overflow-x-auto px-4 pb-1 text-sm md:mx-0 md:flex-wrap md:justify-end md:overflow-visible md:px-0 md:pb-0"
+              >
+                {navigationLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="shrink-0 rounded-full px-2.5 py-1 text-slate-600 hover:bg-slate-100 hover:text-indigo-600"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
               </nav>
             </div>
           </header>
               {children}
-        <footer className="mt-16 border-t border-slate-200 py-6">
-          <div className="max-w-5xl mx-auto px-4 text-center text-sm text-slate-50">
-            <div className="flex justify-center gap-4 mb-2">
-              <a href="/que-es-un-pagare" className="hover:text-slate-400">
-                ¿Qué es un pagaré?
-              </a>
+        <footer className="border-t border-slate-200 bg-white py-6 pb-14">
+          <div className="max-w-5xl mx-auto px-4 text-center text-sm text-slate-600">
+            <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 mb-3">
+              {navigationLinks.slice(0, -1).map((link) => (
+                <Link key={link.href} href={link.href} className="hover:text-indigo-600">
+                  {link.label}
+                </Link>
+              ))}
 
-              <a href="/como-llenar-un-pagare">
-                Cómo llenar un pagaré
-              </a>
-
-              <a href="/pagare-en-mexico">
-                Pagaré en México
-              </a>
-
-              <a href="/pagare-ejemplo">
-                Ejemplos
-              </a>
-
-              <a href="/preguntas-frecuentes">
-                Preguntas frecuentes
-              </a>
-
-              <a href="/privacidad" className="hover:text-slate-400">
+              <Link href="/privacidad" className="hover:text-slate-400">
                 Privacidad
-              </a>
+              </Link>
 
-              <a href="/terminos" className="hover:text-slate-400">
+              <Link href="/terminos" className="hover:text-slate-400">
                 Términos
-              </a>
+              </Link>
 
-              <a href="/contacto" className="hover:text-slate-400">
+              <Link href="/contacto" className="hover:text-slate-400">
                 Contacto
-              </a>
+              </Link>
             </div>
 
             <p>

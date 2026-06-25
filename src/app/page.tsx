@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
+import { PDFDocument, PDFPage, PDFFont, RGB, rgb, StandardFonts } from 'pdf-lib';
 import { 
   calcularVencimientos, 
   formatearMoneda, 
@@ -10,6 +10,12 @@ import {
   chunkArray,
   Periodo 
 } from '@/utils/helpers';
+
+declare global {
+  interface Window {
+    adsbygoogle?: unknown[];
+  }
+}
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -56,15 +62,15 @@ export default function Home() {
         minSize = 6,
         color = rgb(0, 0, 0),
       }: {
-        page: any;
+        page: PDFPage;
         text: string;
         x: number;
         y: number;
         maxWidth: number;
-        font: any;
+        font: PDFFont;
         size?: number;
         minSize?: number;
-        color?: ReturnType<typeof rgb>;
+        color?: RGB;
       }) => {
         let currentSize = size;
         let safeText = text.trim();
@@ -441,8 +447,8 @@ export default function Home() {
     // Función para empujar el anuncio de forma segura
     const pushAd = () => {
       try {
-        if (typeof window !== 'undefined' && (window as any).adsbygoogle) {
-          ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
+        if (typeof window !== 'undefined' && window.adsbygoogle) {
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
         }
       } catch (e) {
         console.error("Error al registrar bloque de AdSense", e);
@@ -456,17 +462,23 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-slate-50 py-10 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+    <main className="min-h-screen bg-slate-50 py-6 px-3 sm:px-6 lg:px-8 lg:py-10">
+      <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-8 items-start">
         
         {/* COLUMNA DE LA IZQUIERDA Y CENTRO: FORMULARIO PRINCIPAL */}
-        <div className="lg:col-span-2 bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 sm:p-8">
-          <div className="mb-8">
+        <div className="lg:col-span-2 bg-white rounded-xl sm:rounded-2xl border border-slate-200/80 shadow-sm p-4 sm:p-8">
+          <div className="mb-6 sm:mb-8">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-indigo-600">
+              Herramienta gratuita para México
+            </p>
             <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-950">
               Generador de Pagarés en Serie
             </h1>
             <p className="mt-2 text-sm text-slate-500">
               Crea formatos de pagarés legales listos para imprimir de forma masiva y automática.
+            </p>
+            <p className="mt-3 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs leading-relaxed text-amber-900">
+              Esta herramienta no sustituye la asesoría legal. Revisa los datos antes de firmar o imprimir cualquier documento.
             </p>
           </div>
 
@@ -567,13 +579,15 @@ export default function Home() {
                         type="text"
                         value={lugarExpedicion}
                         onChange={(e) => setLugarExpedicion(e.target.value)}
-                        className="w-full rounded-lg border border-slate-200 bg-slate-50/50 p-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-500 focus:bg-white focus:outline-none focus:ring-1 focus:ring-indigo-500 transition-all"
+                        className="min-w-0 w-full rounded-lg border border-slate-200 bg-slate-50/50 p-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-500 focus:bg-white focus:outline-none focus:ring-1 focus:ring-indigo-500 transition-all"
                       />
 
                       <button
                         type="button"
                         onClick={obtenerUbicacion}
-                        className="px-3 rounded-lg bg-slate-100 hover:bg-slate-200"
+                        aria-label="Usar mi ubicación aproximada"
+                        title="Usar mi ubicación aproximada"
+                        className="shrink-0 px-3 rounded-lg bg-slate-100 hover:bg-slate-200"
                       >
                         📍
                       </button>
@@ -662,7 +676,7 @@ export default function Home() {
         {/* COLUMNA DE LA DERECHA: CÁLCULOS EN TIEMPO REAL Y PUBLICIDAD */}
         <div className="space-y-6">
           {/* Tarjeta de Resumen / Cálculo Estimado */}
-          <div className="bg-gradient-to-br from-indigo-50 to-blue-50 border border-indigo-100 rounded-2xl p-5 shadow-sm">
+          <div className="bg-gradient-to-br from-indigo-50 to-blue-50 border border-indigo-100 rounded-xl sm:rounded-2xl p-4 sm:p-5 shadow-sm">
             <h3 className="text-xs font-bold text-indigo-900 uppercase tracking-wider mb-3">
               Vista Previa de Distribución
             </h3>
@@ -684,7 +698,10 @@ export default function Home() {
           </div>
 
           {/* Banner Publicitario reposicionado a la derecha lateral */}
-          <div className="bg-slate-50 border border-slate-200 border-dashed rounded-2xl p-4 flex flex-col items-center justify-center text-center min-h-[250px]">
+          <div className="bg-white border border-slate-200 border-dashed rounded-xl sm:rounded-2xl p-4 flex flex-col items-center justify-center text-center min-h-[180px] sm:min-h-[250px]">
+            <span className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-slate-400">
+              Publicidad
+            </span>
             <ins 
               className="adsbygoogle"
               style={{ display: 'block', width: '100%' }}
@@ -697,8 +714,8 @@ export default function Home() {
         </div>
 
       </div>
-      <section className="max-w-5xl mx-auto mt-16 bg-white rounded-2xl border border-slate-200 text-slate-950 p-8 space-y-8">
-      <h2 className="text-3xl font-bold">
+      <section className="max-w-5xl mx-auto mt-10 sm:mt-16 bg-white rounded-xl sm:rounded-2xl border border-slate-200 text-slate-950 p-5 sm:p-8 space-y-6 sm:space-y-8">
+      <h2 className="text-2xl sm:text-3xl font-bold">
         ¿Qué es un pagaré y para qué sirve?
       </h2>
 
@@ -718,7 +735,7 @@ export default function Home() {
         productos o servicios a crédito.
       </p>
 
-      <h2 className="text-2xl font-semibold">
+      <h2 className="text-xl sm:text-2xl font-semibold">
         ¿Cómo funciona este generador de pagarés?
       </h2>
 
@@ -736,7 +753,7 @@ export default function Home() {
         compartida con terceros.
       </p>
 
-      <h2 className="text-2xl font-semibold">
+      <h2 className="text-xl sm:text-2xl font-semibold">
         Ventajas de generar pagarés en serie
       </h2>
 
@@ -748,7 +765,7 @@ export default function Home() {
         <li>Reduce errores de captura manual.</li>
       </ul>
 
-      <h2 className="text-2xl font-semibold">
+      <h2 className="text-xl sm:text-2xl font-semibold">
         Recomendaciones importantes
       </h2>
 
